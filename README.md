@@ -17,7 +17,7 @@ Automatically create ClickUp subtasks from Git commits and include the subtask I
 Run this command in your repository:
 
 ```bash
-curl -s https://raw.githubusercontent.com/your-username/clickup-git-automation/main/install_clickup_automation.sh | bash
+curl -s https://github.com/Siqi-Hu/clickup-git-automation/blob/main/install_clickup_automation.sh | bash
 ```
 
 You'll be prompted to enter your ClickUp API key during setup.
@@ -27,9 +27,9 @@ You'll be prompted to enter your ClickUp API key during setup.
 1. Download the scripts:
    ```bash
    mkdir -p scripts
-   curl -s -o scripts/sync_github_clickup.sh https://raw.githubusercontent.com/your-username/clickup-git-automation/main/sync_github_clickup.sh
-   curl -s -o scripts/setup_git_hooks.sh https://raw.githubusercontent.com/your-username/clickup-git-automation/main/setup_git_hooks.sh
-   curl -s -o scripts/clickup_setup.sh https://raw.githubusercontent.com/your-username/clickup-git-automation/main/clickup_setup.sh
+   curl -s -o scripts/sync_github_clickup.sh https://github.com/Siqi-Hu/clickup-git-automation/blob/main/sync_github_clickup.sh
+   curl -s -o scripts/setup_git_hooks.sh https://github.com/Siqi-Hu/clickup-git-automation/blob/main/setup_git_hooks.sh
+   curl -s -o scripts/clickup_setup.sh https://github.com/Siqi-Hu/clickup-git-automation/blob/main/clickup_setup.sh
    chmod +x scripts/sync_github_clickup.sh scripts/setup_git_hooks.sh scripts/clickup_setup.sh
    ```
 
