@@ -1,13 +1,25 @@
 #!/bin/bash
 
-# Define ClickUp API Token and Workspace/Spcae IDs
-CLICKUP_API_URL="https://api.clickup.com/api/v2"
-CLICKUP_API_KEY="pk_170606338_HLDE9WPFDF4APAIPAPLVWP48P2CGNPRM"
-WORKSPACE_ID="9015861084"
-SPACE_ID="90154560480"
+# Get the script directory path
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CONFIG_FILE="$SCRIPT_DIR/clickup_config.sh"
 
-# Get the commit message (the last commit message)
-COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+# Check if config file exists, if not prompt for setup
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "ClickUp configuration not found. Please run setup first:"
+    echo "./scripts/clickup_setup.sh"
+    exit 1
+fi
+
+# Source the config file
+source "$CONFIG_FILE"
+
+# Validate required configuration
+if [ -z "$CLICKUP_API_KEY" ] || [ -z "$CLICKUP_API_URL" ] || [ -z "$WORKSPACE_ID" ] || [ -z "SPACE_ID" ]; then
+    echo "Error: Missing required configuration in $CONFIG_FILE"
+    echo "Please run setup again: ./scripts/clickup_setup.sh"
+    exit 1
+fi
 
 # Extract the task ID from the commit message
 BRANCH=$(git symbolic-ref --short HEAD)
@@ -33,8 +45,6 @@ fi
 echo "Commit message: $COMMIT_MESSAGE"
 
 # GET the list ID for the current task
-
-# API endpont to get the correct list ID for the current task ID
 LIST_INFO=$(curl -X GET "$CLICKUP_API_URL/task/$TASK_ID" \
 	-H "Authorization: $CLICKUP_API_KEY" \
         -H 'accept: application/json')
