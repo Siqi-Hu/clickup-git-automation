@@ -5,9 +5,9 @@ mkdir -p scripts
 
 # Download the scripts from GitHub
 echo "Downloading ClickUp Git automation scripts..."
-curl -s -o scripts/sync_github_clickup.sh https://github.com/Siqi-Hu/clickup-git-automation/blob/main/sync_github_clickup.sh
-curl -s -o scripts/setup_git_hooks.sh https://github.com/Siqi-Hu/clickup-git-automation/blob/main/setup_git_hooks.sh
-curl -s -o scripts/clickup_setup.sh https://github.com/Siqi-Hu/clickup-git-automation/blob/main/clickup_setup.sh
+curl -s -o scripts/sync_github_clickup.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/sync_github_clickup.sh
+curl -s -o scripts/setup_git_hooks.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/setup_git_hooks.sh
+curl -s -o scripts/clickup_setup.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/clickup_setup.sh
 
 # Make scripts executable
 chmod +x scripts/sync_github_clickup.sh scripts/setup_git_hooks.sh scripts/clickup_setup.sh
