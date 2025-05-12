@@ -81,7 +81,7 @@ fi
 # Check if config file is already in .gitignore
 if ! grep -q "clickup_config.sh" "$GITIGNORE_FILE"; then
     echo "# ClickUp configuration (contains sensitive data)" >> "$GITIGNORE_FILE"
-    echo "scripts/clickup_config.sh" >> "$GITIGNORE_FILE"
+    echo ".clickup-automation/clickup_config.sh" >> "$GITIGNORE_FILE"
     echo "Added configuration file to .gitignore for security"
 fi
 
