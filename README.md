@@ -26,29 +26,29 @@ You'll be prompted to enter your ClickUp API key during setup.
 
 1. Download the scripts:
    ```bash
-   mkdir -p scripts
-   curl -s -o scripts/sync_github_clickup.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/sync_github_clickup.sh
-   curl -s -o scripts/setup_git_hooks.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/setup_git_hooks.sh
-   curl -s -o scripts/clickup_setup.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/clickup_setup.sh
-   chmod +x scripts/sync_github_clickup.sh scripts/setup_git_hooks.sh scripts/clickup_setup.sh
+   mkdir -p .clickup-automation
+   curl -s -o .clickup-automation/sync_github_clickup.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/sync_github_clickup.sh
+   curl -s -o .clickup-automation/setup_git_hooks.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/setup_git_hooks.sh
+   curl -s -o .clickup-automation/clickup_setup.sh https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/clickup_setup.sh
+   chmod +x .clickup-automation/sync_github_clickup.sh .clickup-automation/setup_git_hooks.sh .clickup-automation/clickup_setup.sh
    ```
 
 2. Run the setup script to configure ClickUp:
    ```bash
-   ./scripts/clickup_setup.sh
+   ./.clickup-automation/clickup_setup.sh
    ```
 
 3. Install the Git hook:
    ```bash
-   ./scripts/setup_git_hooks.sh
+   ./.clickup-automation/setup_git_hooks.sh
    ```
 
 ## Configuration
 
-Your ClickUp configuration is stored securely in `scripts/clickup_config.sh`. This file:
+Your ClickUp configuration is stored securely in `.clickup-automation/clickup_config.sh`. This file:
 - Is automatically added to `.gitignore` to prevent accidental commits
 - Has permissions set to owner-only access (chmod 600)
-- Can be reconfigured at any time by running `./scripts/clickup_setup.sh` again
+- Can be reconfigured at any time by running `./.clickup-automation/clickup_setup.sh` again
 
 ## Security Features
 
@@ -71,7 +71,7 @@ Once installed, the automation works automatically:
 
 If you encounter issues:
 
-1. **Missing Configuration**: If you see "ClickUp configuration not found", run `./scripts/clickup_setup.sh`
+1. **Missing Configuration**: If you see "ClickUp configuration not found", run `./.clickup-automation/clickup_setup.sh`
 2. **API Errors**: Check your API key by running setup again
 3. **Task ID Not Found**: Ensure your branch name contains `CU-TASKID` (e.g., `feat/CU-12345-feature`)
 4. **Hook Not Running**: Verify the hook is executable with `chmod +x .git/hooks/prepare-commit-msg`

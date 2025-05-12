@@ -8,7 +8,7 @@ cat > "$REPO_ROOT/.git/hooks/prepare-commit-msg" <<EOF
 #!/bin/bash
 
 # Run the ClickUp sync script
-"$REPO_ROOT/scripts/sync_github_clickup.sh"
+"$REPO_ROOT/.clickup-automation/sync_github_clickup.sh"
 
 # Exit with success
 exit 0

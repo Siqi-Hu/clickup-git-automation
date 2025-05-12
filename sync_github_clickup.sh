@@ -7,7 +7,7 @@ CONFIG_FILE="$SCRIPT_DIR/clickup_config.sh"
 # Check if config file exists, if not prompt for setup
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "ClickUp configuration not found. Please run setup first:"
-    echo "./scripts/clickup_setup.sh"
+    echo "./.clickup-automation/clickup_setup.sh"
     exit 1
 fi
 
@@ -17,7 +17,7 @@ source "$CONFIG_FILE"
 # Validate required configuration
 if [ -z "$CLICKUP_API_KEY" ] || [ -z "$CLICKUP_API_URL" ] || [ -z "$WORKSPACE_ID" ] || [ -z "SPACE_ID" ]; then
     echo "Error: Missing required configuration in $CONFIG_FILE"
-    echo "Please run setup again: ./scripts/clickup_setup.sh"
+    echo "Please run setup again: ./.clickup-automation/clickup_setup.sh"
     exit 1
 fi
 
