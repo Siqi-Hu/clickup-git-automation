@@ -4,7 +4,7 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 # Create the prepare-commit-msg hook
-cat > "$REPO_ROOT/.git/hooks/prepare-commit-msg" << 'EOF'
+cat > "$REPO_ROOT/.git/hooks/prepare-commit-msg" <<EOF
 #!/bin/bash
 
 # Run the ClickUp sync script
