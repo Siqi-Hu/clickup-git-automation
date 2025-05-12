@@ -17,7 +17,7 @@ Automatically create ClickUp subtasks from Git commits and include the subtask I
 Run this command in your repository:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/Siqi-Hu/clickup-git-automation/refs/heads/main/install_clickup_automation.sh)
 ```
 
 You'll be prompted to enter your ClickUp API key during setup.
